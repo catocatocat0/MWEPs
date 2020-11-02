@@ -1,0 +1,4 @@
+Disable-IFrames: true
+Require-Perms-to-Use-MWEP: false
+Add-Owner-to-Projectiles: true
+Disable-Projectiles-Breaking-Hanging-Entities: true

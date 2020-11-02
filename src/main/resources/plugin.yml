@@ -1,0 +1,12 @@
+main: catocatocato.mweps.MwepsMain
+name: MWeps
+version: 1.4
+author: catocatocato
+description: custom weapon maker made for Minecraft@UW by catocatocato
+api-version: 1.16
+depends: [NBTAPI]
+commands:
+  mweps:
+    description: the mweps command
+    usage: /mweps
+    default: op
