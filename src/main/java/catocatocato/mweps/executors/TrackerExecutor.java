@@ -210,7 +210,7 @@ public class TrackerExecutor extends ExecutorFormat {
 
                 case "HVZ":
                     collection.removeIf((e) -> !(e instanceof Player));
-                    collection.removeIf((e) -> e.getScoreboardTags().contains("HVZHuman"));
+                    collection.removeIf((e) -> !e.getScoreboardTags().contains("HVZHuman"));
                     collection.removeIf((e) -> e.getUniqueId().equals(sender.getUniqueId()));
                     break;
 

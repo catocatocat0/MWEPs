@@ -59,6 +59,7 @@ public class WeaponUseExecutor {
                 displayCooldown = itemlist.getBoolean(s + ".DisplayCooldown");
             } catch (NullPointerException e) {
                 displayCooldown = false;
+                sender.sendMessage(ChatColor.RED+"Invalid DisplayCooldown!");
             }
         }else {
             displayCooldown = false;
@@ -70,6 +71,7 @@ public class WeaponUseExecutor {
                 consumable = itemlist.getBoolean(s + ".Consumable");
             } catch (NullPointerException e) {
                 consumable = false;
+                sender.sendMessage(ChatColor.RED+"Invalid Consumable!");
             }
         }else {
             consumable = false;
@@ -80,6 +82,7 @@ public class WeaponUseExecutor {
             try {
                 usetime = itemlist.getInt(s + "." + usecase + ".UseTime");
             } catch (NullPointerException e) {
+                sender.sendMessage(ChatColor.RED+"Invalid UseTime!");
                 usetime = 0;
             }
         }else {
@@ -91,12 +94,15 @@ public class WeaponUseExecutor {
             try {
                 ammoType = Material.valueOf(itemlist.getString(s+"."+usecase+".Ammo.Type"));
             } catch (Exception e) {
+                sender.sendMessage(ChatColor.RED+"Invalid Ammo.Type!");
+                ammoType = null;
             }
 
             try {
                 ammoName = itemlist.getString(s+"."+usecase+".Ammo.Name");
             } catch (Exception e) {
                 if(ammoType != null) {
+                    sender.sendMessage(ChatColor.RED+"Invalid Ammo.Name!");
                     ammoName = ammoType.toString();
                 }
             }
@@ -104,6 +110,8 @@ public class WeaponUseExecutor {
             try {
                 ammoUse = itemlist.getInt(s+"."+usecase+".Ammo.Use");
             } catch (Exception e) {
+                sender.sendMessage(ChatColor.RED+"Invalid Ammo.Use!");
+                ammoUse = 0;
             }
         }
 

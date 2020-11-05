@@ -317,12 +317,13 @@ public class EffectOthersSphereExecutor extends ExecutorFormat {
         Collection<Entity> collection = sender.getWorld().getNearbyEntities(sender.getLocation(), radius, radius, radius);
         collection.removeIf((e) -> !(e instanceof LivingEntity));
         collection.removeIf((e) -> e.getUniqueId().equals(sender.getUniqueId()));
-        Object[] entities = collection.toArray();
 
         //filters the collection
         if (data.get("Effect.Other.Sphere.Filter.Tag.Exclude") != null || data.get("Effect.Other.Sphere.Filter.Tag.Include") != null) {
             filterCollection(data, collection);
         }
+
+        Object[] entities = collection.toArray();
 
         for (Object o : entities) {
             Entity entity = (Entity) o;

@@ -23,6 +23,7 @@ public class WeaponStorage {
             e.printStackTrace();
             System.out.println("MWeps was not able to access the config folder!");
         }
+
         if(!file.exists()){
             try {
                 file.createNewFile();

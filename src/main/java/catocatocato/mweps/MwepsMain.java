@@ -32,7 +32,6 @@ import java.util.Set;
             - Modify NBT merging to allow nested NBT tags
             - use a better method to copy MWEPs
             - split up the editor into its own multiple commands
-            - add in nested entity spawns
             */
 public class MwepsMain extends JavaPlugin implements Listener {
     //define objects
