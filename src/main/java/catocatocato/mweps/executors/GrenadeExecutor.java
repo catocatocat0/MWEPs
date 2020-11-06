@@ -14,28 +14,27 @@ import org.bukkit.util.Vector;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class GrenadeExecutor extends ExecutorFormat{
+public class GrenadeExecutor{
 
-    private final MwepsMain plugin;
-    private final Entity sender;
     private final Player psender;
+    private final Entity sender;
     private final String mwep;
     private final String usecase;
     private final FileConfiguration mweplist;
+    private final MwepsMain plugin;
 
     GrenadeExecutor(MwepsMain plugin, Entity sender, String mwep, String usecase, FileConfiguration mweplist, Player player){
-        this.plugin = plugin;
         this.sender = sender;
         this.mwep = mwep;
-        this.usecase = usecase;
         this.mweplist = mweplist;
+        this.usecase = usecase;
         this.psender = player;
-        if(sender.isValid()) {
-            this.parseData();
+        this.plugin = plugin;
+        if(sender.isValid()){
+            parseData();
         }
     }
 
-    @Override
     public void parseData() {
         //sets up relevant data to look for
         ArrayList<String> id = new ArrayList<>();
@@ -196,7 +195,6 @@ public class GrenadeExecutor extends ExecutorFormat{
         data.clear();
     }
 
-    @Override
     public void executeMwep(HashMap<String, Object> data) {
         //gathers initializes variables
         int count = (int) data.get("Spawn.Grenade.Count");

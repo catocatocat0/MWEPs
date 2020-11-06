@@ -1,5 +1,6 @@
 package catocatocato.mweps.executors;
 
+import catocatocato.mweps.MwepsMain;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -13,17 +14,9 @@ import org.bukkit.potion.PotionEffectType;
 import java.util.*;
 
 public class EffectOthersSphereExecutor extends ExecutorFormat {
-    private final Player sender;
-    private final String mwep;
-    private final String usecase;
-    private final FileConfiguration mweplist;
 
-    EffectOthersSphereExecutor(Entity sender, String mwep, String usecase, FileConfiguration mweplist) {
-        this.sender = (Player) sender;
-        this.mwep = mwep;
-        this.usecase = usecase;
-        this.mweplist = mweplist;
-        this.parseData();
+    EffectOthersSphereExecutor(MwepsMain plugin, Entity sender, String mwep, String usecase, FileConfiguration mweplist) {
+        super(plugin, sender, mwep, usecase, mweplist);
     }
 
     @Override

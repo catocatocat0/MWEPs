@@ -228,7 +228,7 @@ public class Editor extends CommandFormat {
             String wnum = "whole number";
             String num = "number";
             String tf = "true/false";
-            String dat = "data here";
+            String dat = "nbt data here";
 
             itemlist.set(name + ".Data", "{"+dat+"}");
             itemlist.set(name + ".Weapon", "spigot material");

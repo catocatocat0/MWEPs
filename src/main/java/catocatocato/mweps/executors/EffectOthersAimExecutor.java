@@ -1,5 +1,6 @@
 package catocatocato.mweps.executors;
 
+import catocatocato.mweps.MwepsMain;
 import org.bukkit.ChatColor;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
@@ -9,8 +10,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityCategory;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.RayTraceResult;
@@ -20,17 +19,10 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class EffectOthersAimExecutor extends ExecutorFormat{
-    private final Player sender;
-    private final String mwep;
-    private final String usecase;
-    private final FileConfiguration mweplist;
 
-    EffectOthersAimExecutor(Entity sender, String mwep, String usecase, FileConfiguration mweplist){
-        this.sender = (Player) sender;
-        this.mwep = mwep;
-        this.usecase = usecase;
-        this.mweplist = mweplist;
-        this.parseData();
+
+    EffectOthersAimExecutor(MwepsMain plugin, Entity sender, String mwep, String usecase, FileConfiguration mweplist){
+        super(plugin, sender, mwep, usecase, mweplist);
     }
 
 

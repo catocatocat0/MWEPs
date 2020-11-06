@@ -1,26 +1,17 @@
 package catocatocato.mweps.executors;
 
+import catocatocato.mweps.MwepsMain;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SoundExecutor extends ExecutorFormat{
 
-    private final Player sender;
-    private final String mwep;
-    private final String usecase;
-    private final FileConfiguration mweplist;
-
-    SoundExecutor(Entity sender, String mwep, String usecase, FileConfiguration mweplist){
-        this.sender = (Player) sender;
-        this.mwep = mwep;
-        this.usecase = usecase;
-        this.mweplist = mweplist;
-        this.parseData();
+    SoundExecutor(MwepsMain plugin, Entity sender, String mwep, String usecase, FileConfiguration mweplist){
+        super(plugin, sender, mwep, usecase, mweplist);
     }
 
     @Override

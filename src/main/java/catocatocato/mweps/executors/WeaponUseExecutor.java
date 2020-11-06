@@ -139,27 +139,27 @@ public class WeaponUseExecutor {
                 }
 
                 if(weapon.contains(s+"."+usecase+".Sound")){
-                    new SoundExecutor(sender, s, usecase, itemlist);
+                    new SoundExecutor(plugin, sender, s, usecase, itemlist);
                 }
 
                 if(weapon.contains(s+"."+usecase+".Launch")){
-                    new LaunchExecutor(sender, s, usecase, itemlist);
+                    new LaunchExecutor(plugin, sender, s, usecase, itemlist);
                 }
 
                 if(weapon.contains(s+"."+usecase+".Effect.Self")){
-                    new EffectSelfExecutor(sender, s, usecase, itemlist);
+                    new EffectSelfExecutor(plugin, sender, s, usecase, itemlist);
                 }
 
                 if(weapon.contains(s+"."+usecase+".Effect.Other.Sphere")){
-                    new EffectOthersSphereExecutor(sender, s, usecase, itemlist);
+                    new EffectOthersSphereExecutor(plugin, sender, s, usecase, itemlist);
                 }
 
                 if(weapon.contains(s+"."+usecase+".Effect.Other.Aim")){
-                    new EffectOthersAimExecutor(sender, s, usecase, itemlist);
+                    new EffectOthersAimExecutor(plugin, sender, s, usecase, itemlist);
                 }
 
                 if(weapon.contains(s+"."+usecase+".Track")){
-                    new TrackerExecutor(sender, s, usecase, itemlist);
+                    new TrackerExecutor(plugin, sender, s, usecase, itemlist);
                 }
 
                 playerUse.put(s+usecase+sender.getUniqueId().toString(),Long.toString(System.currentTimeMillis()));

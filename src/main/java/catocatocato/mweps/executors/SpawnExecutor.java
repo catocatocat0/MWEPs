@@ -18,19 +18,8 @@ import java.util.HashMap;
 
 public class SpawnExecutor extends ExecutorFormat{
 
-    private final MwepsMain plugin;
-    private final Player sender;
-    private final String mwep;
-    private final String usecase;
-    private final FileConfiguration mweplist;
-
     SpawnExecutor(MwepsMain plugin, Entity sender, String mwep, String usecase, FileConfiguration mweplist){
-        this.plugin = plugin;
-        this.sender = (Player) sender;
-        this.mwep = mwep;
-        this.usecase = usecase;
-        this.mweplist = mweplist;
-        this.parseData();
+        super(plugin, sender, mwep, usecase, mweplist);
     }
 
     @Override
@@ -205,10 +194,6 @@ public class SpawnExecutor extends ExecutorFormat{
                         new GrenadeExecutor(plugin, projectile, mwep, usecase, mweplist, sender);
                     }
                 }.runTaskLater(plugin,(long) data.get("Spawn.Grenade.Timer"));
-
-                if(projectile instanceof LivingEntity){
-                    ((LivingEntity)projectile).addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,Integer.parseInt(data.get("Spawn.Grenade.Timer").toString()),100, false, false, false));
-                }
             }
         }
         data.clear();
