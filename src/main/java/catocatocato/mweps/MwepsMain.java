@@ -46,6 +46,14 @@ public class MwepsMain extends JavaPlugin implements Listener {
     //runs when the plugin gets enabled
     @Override
     public void onEnable(){
+        //setup items.yml and add defaults to it
+        try {
+            DefaultItems.writeDefaults();
+        }catch(NullPointerException e){
+            System.out.println("MWeps failed to load weapons.yml!");
+            e.printStackTrace();
+        }
+
         //creates file config stuff
         new BukkitRunnable(){
             @Override
@@ -55,14 +63,6 @@ public class MwepsMain extends JavaPlugin implements Listener {
             }
         }.runTaskLater(this, 1L);
         getServer().getPluginManager().registerEvents(this,this);
-
-        //setup items.yml and add defaults to it
-        try {
-            DefaultItems.writeDefaults();
-        }catch(NullPointerException e){
-            System.out.println("MWeps failed to load weapons.yml!");
-            e.printStackTrace();
-        }
 
         //call constructors
         this.getCommand("mweps").setExecutor(new CommandManager(this));

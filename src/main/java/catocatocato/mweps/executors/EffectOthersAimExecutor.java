@@ -286,7 +286,7 @@ public class EffectOthersAimExecutor extends ExecutorFormat{
 
         //ray trace for entities
         RayTraceResult e2 = sender.getWorld().rayTraceEntities(ppos,plook,range,
-                (e) -> entityFilter(e));
+                this::entityFilter);
         LivingEntity entity;
         boolean enable = true;
 
@@ -420,12 +420,9 @@ public class EffectOthersAimExecutor extends ExecutorFormat{
 
             Set<String> tags = e.getScoreboardTags();
 
-            if(tags.contains("HVZHuman")&&mwep.equalsIgnoreCase("Laser-Pistol")){
-                status = false;
-            }else{
-                status = true;
-            }
-
+            status = !tags.contains("HVZHuman") &&
+                    (!mwep.equalsIgnoreCase("Laser-Pistol") ||
+                    !mwep.equalsIgnoreCase("Wonderwaffle"));
         }else{
             status = false;
         }
